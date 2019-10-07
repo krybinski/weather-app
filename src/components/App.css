@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 3rem;
+}
+
+input {
+  font-size: 1rem;
+  color: black;
+  height: 50px;
+  width: 120px;
+  border: 1px solid black;
+  width: 200px;
+  border-radius: 2px;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+input:focus {
+  outline: 0;
+}
+
+p {
+  margin: 0;
+}
