@@ -11,11 +11,10 @@ class App extends Component {
     value: '',
     date: '',
     city: '',
-    sunrise: '',
-    sunset: '',
     temp: '',
     pressure: '',
     wind: '',
+    icon: '',
     error: false,
   };
 
@@ -44,11 +43,10 @@ class App extends Component {
         this.setState((prevState) => ({
           date: time,
           city: prevState.value,
-          sunrise: data.sys.sunrise,
-          sunset: data.sys.sunset,
           temp: data.main.temp,
           pressure: data.main.pressure,
           wind: data.wind.speed,
+          icon: data.weather[0].icon,
           error: false,
         }));
       })
@@ -62,7 +60,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <Form
           onChange={this.handeInputChange}
           value={this.state.value}

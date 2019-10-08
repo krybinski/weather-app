@@ -1,29 +1,26 @@
 import React, { Fragment } from 'react';
+import './Result.css';
 
 const Result = ({ weather }) => {
-  const { date, city, sunrise, sunset, temp, pressure, wind, error } = weather;
+  const { date, city, temp, pressure, wind, icon, error } = weather;
   let content = null;
 
   if (!error && city) {
-    const sunriseTime = new Date(sunrise * 1000).toLocaleTimeString();
-    const sunsetTime = new Date(sunset * 1000).toLocaleTimeString();
-
     content = (
-      <div>
-        <h3>{`Results for ${city}`}</h3>
-        <p>{`Date: ${date}`}</p>
-        <p>{`Current temp: ${temp}`}&#176;C</p>
-        <p>{`Sunrise at: ${sunriseTime}`}</p>
-        <p>{`Sunset at: ${sunsetTime}`}</p>
-        <p>{`Pressure: ${pressure}`} hPa</p>
-        <p>{`Wind speed: ${wind}`} m/s</p>
+      <div className="result">
+        <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} className="result__image" alt=""/>
+        <h1 className="result__title">{city}</h1>
+        <p className="result__date">{date}</p>
+        <p className="result__temp">{temp.toFixed(1)}&#176;C</p>
+        <p><span className="fas fa-tachometer-alt result__icon"></span> {pressure} hPa</p>
+        <p><span className="fas fa-wind result__icon"></span> {wind} m/s</p>
       </div>
     );
   }
 
   return (
     <Fragment>
-      {error ? `${city} doesn't exists!` : content}
+      {error ? <p className="error">{city} doesn't exists!</p> : content}
     </Fragment>
   );
 }

@@ -1,0 +1,26 @@
+.result__title {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-bottom: .2rem;
+  text-align: center;
+}
+
+.result__date {
+  font-size: .8rem;
+  margin-bottom: 0;
+}
+
+.result__temp {
+  font-size: 3rem;
+  font-weight: 200;
+  margin: 1.5rem 0;
+}
+
+.result__image {
+  margin: 0 auto;
+  display: block;
+}
+
+.result__icon {
+  font-size: 1rem;
+}
